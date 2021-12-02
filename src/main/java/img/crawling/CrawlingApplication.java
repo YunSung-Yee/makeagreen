@@ -1,0 +1,15 @@
+package img.crawling;
+
+import img.crawling.controller.Crawl;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CrawlingApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CrawlingApplication.class, args);
+		new Crawl().downloadImg();
+	}
+
+}
