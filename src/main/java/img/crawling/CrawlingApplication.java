@@ -3,13 +3,21 @@ package img.crawling;
 import img.crawling.controller.Crawl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class CrawlingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CrawlingApplication.class, args);
-		new Crawl().downloadImg();
+	private static ApplicationContext context;
+
+	public CrawlingApplication(ApplicationContext context) {
+		this.context = context;
 	}
 
+	public static void main(String[] args) {
+		SpringApplication.run(CrawlingApplication.class, args);
+		Crawl crawl = new Crawl();
+		boolean end = crawl.downloadImg();
+		if(end) SpringApplication.exit(context,() -> 0);
+	}
 }
