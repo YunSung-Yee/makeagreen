@@ -1,20 +1,29 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
 
-    private MemberRespository memberRespository;
+    private MemberRepository memberRepository;
 
-    public MemberServiceImpl(MemberRespository memberRespository) {
-        this.memberRespository = memberRespository;
+    @Autowired
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Override
     public void join(Member member) {
-        memberRespository.save(member);
+        memberRepository.save(member);
     }
 
     @Override
     public Member findMember(Long memberId) {
-        return memberRespository.findById(memberId);
+        return memberRepository.findById(memberId);
+    }
+
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
     }
 }
