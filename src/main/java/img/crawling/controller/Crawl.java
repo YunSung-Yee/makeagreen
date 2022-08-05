@@ -18,7 +18,9 @@ public class Crawl {
 
         System.out.println("상품코드를 입력하세요");
         String pdArr[] = sc.nextLine().split(",");
-        String path = "C:\\img\\";
+        String path = "/Users/yslee/Downloads/img";
+        //String path = "C:\\img\\";
+        int cnt = 1;
 
         for (String ptcode : pdArr) {
             String url = "https://m.celectory.com/mobile/product/" + ptcode;
@@ -45,7 +47,7 @@ public class Crawl {
                     saveFile.mkdir();
                 }
 
-                saveFile = new File(path, ptcode + ".jpg");
+                saveFile = new File(path,cnt + "_" + ptcode + ".jpg");
 
                 fos = new FileOutputStream(saveFile);
                 fos.write(response.bodyAsBytes());
@@ -54,6 +56,8 @@ public class Crawl {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            cnt++;
         }
 
         return true;
