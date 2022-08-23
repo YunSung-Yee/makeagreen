@@ -44,7 +44,7 @@ public class AppConfig {
     @Bean
     public DiscountPolicy discountPolicy() {
         System.out.println("AppConfig.discountPolicy");
-//        return new FixDiscountPolicy();
-        return new RateDiscountPolicy();
+        return new FixDiscountPolicy();
+//        return new RateDiscountPolicy();
     }
 }
