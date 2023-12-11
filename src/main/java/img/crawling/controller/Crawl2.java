@@ -39,7 +39,7 @@ public class Crawl2 {
                     saveFile.mkdir();
                 }
 
-                saveFile = new File(path,cnt + "_" + ptCode + ".jpg");
+                saveFile = new File(path,ptCode + ".jpg");
 
                 fos = new FileOutputStream(saveFile);
                 fos.write(response.bodyAsBytes());
