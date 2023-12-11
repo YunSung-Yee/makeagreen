@@ -1,6 +1,7 @@
 package img.crawling;
 
 import img.crawling.controller.Crawl;
+import img.crawling.controller.Crawl2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
